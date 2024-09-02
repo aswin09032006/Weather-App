@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CiSearch } from "react-icons/ci";
 import clearIcon from '../../assets/images/clear.png';
 import cloudIcon from '../../assets/images/cloud.png';
 import drizzleIcon from '../../assets/images/drizzle.png';
@@ -123,7 +122,7 @@ const Weather = () => {
                     ref={inputRef}
                     defaultValue={city}
                 />
-                <CiSearch className='search-icon' onClick={handleSearch}/>
+                <img src={search} alt="" />
             </div>
             <img src={weather.icon} alt="weather-icon" />
             <p className="temperature">{weather.temperature} °C</p>
