@@ -6,12 +6,16 @@
     justify-content: center;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
     max-width: 300px;
     margin: auto;
-    font-family: 'Arial', sans-serif;
     overflow: hidden;
 }
+
 
 .background-video {
     position: absolute;
@@ -50,6 +54,15 @@
     border-color: #a0a0a0;
 }
 
+.search-btn{
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
 .search-icon {
     padding: 10px;
     height: 20px;
@@ -72,7 +85,7 @@
 
 .temperature {
     font-size: 48px;
-    color: #333;
+    color: #000000;
     margin: 10px 0;
 }
 

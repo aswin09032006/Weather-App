@@ -6,10 +6,6 @@ import humidityIcon from '../../assets/images/humidity.png';
 import rainIcon from '../../assets/images/rain.png';
 import snowIcon from '../../assets/images/snow.png';
 import windIcon from '../../assets/images/wind.png';
-import cloudyVideo from '../../assets/videos/cloudy.mp4';
-import rainyVideo from '../../assets/videos/rainy.mp4';
-import snowyVideo from '../../assets/videos/snowy.mp4';
-import sunnyVideo from '../../assets/videos/sunny.mp4';
 import './weather.css';
 
 const Weather = () => {
@@ -19,7 +15,6 @@ const Weather = () => {
         humidity: '',
         windSpeed: '',
         icon: clearIcon,
-        backgroundVideo: sunnyVideo
     });
 
     const [city, setCity] = useState('Salem');
@@ -40,24 +35,7 @@ const Weather = () => {
         "10n": rainIcon,
         "13d": snowIcon,
         "13n": snowIcon,
-    }
-
-    const BackgroundVideos = {
-        "01d": sunnyVideo,
-        "01n": sunnyVideo,
-        "02d": cloudyVideo,
-        "02n": cloudyVideo,
-        "03d": cloudyVideo,
-        "03n": cloudyVideo,
-        "04d": cloudyVideo,
-        "04n": cloudyVideo,
-        "09d": rainyVideo,
-        "09n": rainyVideo,
-        "10d": rainyVideo,
-        "10n": rainyVideo,
-        "13d": snowyVideo,
-        "13n": snowyVideo,
-    }
+    };
 
     const search = async (city) => {
         try {
@@ -77,10 +55,9 @@ const Weather = () => {
             }
 
             const data = await response.json();
-            // console.log(data);
+            console.log(data);
 
             const icon = Icons[data.weather[0].icon] || clearIcon;
-            const backgroundVideo = BackgroundVideos[data.weather[0].icon] || sunnyVideo;
 
             if (data.main && data.wind) {
                 setWeather({
@@ -89,7 +66,6 @@ const Weather = () => {
                     humidity: data.main.humidity,
                     windSpeed: data.wind.speed,
                     icon: icon,
-                    backgroundVideo: backgroundVideo,
                 });
             } else {
                 console.error('Unexpected data structure:', data);
@@ -110,11 +86,6 @@ const Weather = () => {
 
     return (
         <div className="weather">
-            <div className="background-video">
-                <video autoPlay loop muted>
-                    <source src={weather.backgroundVideo} type="video/mp4" />
-                </video>
-            </div>
             <div className="search-bar">
                 <input 
                     type="text" 
@@ -122,7 +93,7 @@ const Weather = () => {
                     ref={inputRef}
                     defaultValue={city}
                 />
-                <img src={search} alt="" />
+                <button className="search-btn" onClick={handleSearch}>Search</button>
             </div>
             <img src={weather.icon} alt="weather-icon" />
             <p className="temperature">{weather.temperature} °C</p>
