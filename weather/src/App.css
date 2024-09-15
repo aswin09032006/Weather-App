@@ -1,3 +1,4 @@
+/* Base styles (for larger screens) */
 body {
   font-family: 'Nunito Sans', sans-serif;
   background-color: #121212;
@@ -15,6 +16,7 @@ body {
   width: 95vw;
 }
 
+/* Base Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
@@ -34,9 +36,15 @@ body {
   margin: 0;
 }
 
-.logo p{
+.logo p {
   font-size: 1rem;
   color: #848484;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .search-bar input {
@@ -45,7 +53,6 @@ body {
   border: none;
   border-radius: 30px;
   color: #fff;
-  margin-right: 10px;
   width: 300px;
 }
 
@@ -58,6 +65,112 @@ body {
   color: #09001c;
   cursor: pointer;
   font-size: 1rem;
+}
+
+/* Responsive Header Styles */
+@media (max-width: 1200px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .current-location-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo p {
+    font-size: 0.9rem;
+  }
+
+  .search-bar input {
+    width: 200px;
+  }
+
+  .search-bar button,
+  .current-location-btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .logo p {
+    font-size: 0.8rem;
+  }
+
+  .search-bar input {
+    width: 150px;
+  }
+
+  .search-bar button,
+  .current-location-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo p {
+    font-size: 0.7rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .search-bar button,
+  .current-location-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
 }
 
 .weather-cards {
@@ -267,4 +380,143 @@ body {
   padding: 20px;
   border-radius: 15px;
   flex: 2;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .weather-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .search-bar input {
+    width: 200px;
+  }
+
+  .weather-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .today-at-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .search-bar input {
+    width: 150px;
+  }
+
+  .forecast-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .today-at-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .logo p {
+    font-size: 0.7rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .search-bar button,
+  .current-location-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .weather-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .left-section,
+  .right-section {
+    padding: 10px;
+  }
+
+  .now-card,
+  .forecast-card,
+  .highlights-card,
+  .today-at-section {
+    padding: 20px;
+  }
+
+  .now-content img,
+  .forecast-item img,
+  .today-at-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .forecast-content {
+    grid-template-columns: 1fr;
+  }
+
+  .today-at-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .highlight-item span-2 {
+    grid-column: span 1; /* Adjust for smaller screens */
+  }
+
+  .sun-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sun-details .sunrise,
+  .sun-details .sunset {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sun-details img {
+    width: 20px;
+    height: 20px;
+  }
 }
